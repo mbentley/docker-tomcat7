@@ -19,4 +19,4 @@ then
 	sed -i "s#.*max-request-size.*#\t<max-request-size>${MAX_UPLOAD_SIZE}</max-request-size>#g" /opt/tomcat/webapps/manager/WEB-INF/web.xml
 fi
 
-/bin/sh -e /opt/tomcat/bin/catalina.sh run
+exec /opt/tomcat/bin/catalina.sh run

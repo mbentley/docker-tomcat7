@@ -3,7 +3,7 @@ MAINTAINER Matt Bentley <mbentley@mbentley.net>
 RUN (echo "deb http://http.debian.net/debian/ jessie main contrib non-free" > /etc/apt/sources.list && echo "deb http://http.debian.net/debian/ jessie-updates main contrib non-free" >> /etc/apt/sources.list && echo "deb http://security.debian.org/ jessie/updates main contrib non-free" >> /etc/apt/sources.list)
 RUN apt-get update
 
-ENV TOMCATVER 7.0.56
+ENV TOMCATVER 7.0.57
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre-headless wget
 RUN (wget -O /tmp/tomcat7.tar.gz http://www.us.apache.org/dist/tomcat/tomcat-7/v${TOMCATVER}/bin/apache-tomcat-${TOMCATVER}.tar.gz && \
@@ -19,4 +19,4 @@ ADD ./run.sh /usr/local/bin/run
 #ADD yourfile.war /opt/tomcat/webapps/ROOT.war
 
 EXPOSE 8080
-CMD ["/bin/sh", "-e", "/usr/local/bin/run"]
+CMD ["/usr/local/bin/run"]
