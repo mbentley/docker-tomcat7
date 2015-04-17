@@ -1,16 +1,14 @@
 FROM debian:jessie
 MAINTAINER Matt Bentley <mbentley@mbentley.net>
-RUN (echo "deb http://http.debian.net/debian/ jessie main contrib non-free" > /etc/apt/sources.list && echo "deb http://http.debian.net/debian/ jessie-updates main contrib non-free" >> /etc/apt/sources.list && echo "deb http://security.debian.org/ jessie/updates main contrib non-free" >> /etc/apt/sources.list)
-RUN apt-get update
 
 ENV TOMCATVER 7.0.61
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre-headless wget
+RUN (apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre-headless wget)
 RUN (wget -O /tmp/tomcat7.tar.gz http://www.us.apache.org/dist/tomcat/tomcat-7/v${TOMCATVER}/bin/apache-tomcat-${TOMCATVER}.tar.gz && \
-	cd /opt && \
-	tar zxf /tmp/tomcat7.tar.gz && \
-	mv /opt/apache-tomcat* /opt/tomcat && \
-	rm /tmp/tomcat7.tar.gz)
+  cd /opt && \
+  tar zxf /tmp/tomcat7.tar.gz && \
+  mv /opt/apache-tomcat* /opt/tomcat && \
+  rm /tmp/tomcat7.tar.gz)
 
 ADD ./run.sh /usr/local/bin/run
 
