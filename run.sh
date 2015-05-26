@@ -2,7 +2,7 @@
 ADMIN_USER=${ADMIN_USER:-admin}
 ADMIN_PASS=${ADMIN_PASS:-tomcat}
 MAX_UPLOAD_SIZE=${MAX_UPLOAD_SIZE:-52428800}
-CATALINA_OPTS=${CATALINA_OPTS:-"-Xms128m -Xmx1024m -XX:PermSize=128m -XX:MaxPermSize=256m"}
+CATALINA_OPTS=${CATALINA_OPTS:-"-Xms128m -Xmx1024m -XX:PermSize=128m -XX:MaxPermSize=256m -Djava.security.egd=file:/dev/./urandom"}
 
 export CATALINA_OPTS="${CATALINA_OPTS}"
 
