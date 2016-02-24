@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Matt Bentley <mbentley@mbentley.net>
 
-ENV TOMCATVER 7.0.67
+ENV TOMCATVER 7.0.68
 
 RUN (apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre-headless wget)
 RUN (wget -O /tmp/tomcat7.tar.gz http://www.apache.org/dist/tomcat/tomcat-7/v${TOMCATVER}/bin/apache-tomcat-${TOMCATVER}.tar.gz && \
